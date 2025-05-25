@@ -99,6 +99,7 @@
 </head>
 <body>
   <div class="container">
+
     <!-- Login Form -->
     <div id="loginForm">
       <h2>Library Login</h2>
@@ -121,26 +122,31 @@
       <button onclick="login()">Login</button>
     </div>
 
-    <!-- Register Form -->
-    <div id="registerForm" class="hidden">
+    <!-- Register Form (POSTs to register.php) -->
+    <form id="registerForm" class="hidden" method="post" action="register.php">
       <h2>Register</h2>
+
       <div class="form-group">
-        <label for="regUser">Username</label>
-        <input type="text" id="regUser" />
+        <label for="name">Username</label>
+        <input type="text" name="name" id="name" required />
       </div>
+
       <div class="form-group">
-        <label for="regEmail">Email</label>
-        <input type="email" id="regEmail" />
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required />
       </div>
+
       <div class="form-group">
-        <label for="regPass">Password</label>
-        <input type="password" id="regPass" />
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required />
       </div>
+
       <div class="actions">
         <a onclick="showLogin()">Back to Login</a>
       </div>
-      <button onclick="register()">Create Account</button>
-    </div>
+
+      <button type="submit">Create Account</button>
+    </form>
 
     <!-- Forgot Password Form -->
     <div id="forgotForm" class="hidden">
@@ -184,14 +190,6 @@
       const user = document.getElementById("loginUser").value;
       const pass = document.getElementById("loginPass").value;
       alert(`Logged in as ${user}`);
-    }
-
-    function register() {
-      const user = document.getElementById("regUser").value;
-      const email = document.getElementById("regEmail").value;
-      const pass = document.getElementById("regPass").value;
-      alert(`Registered successfully as ${user}`);
-      showLogin();
     }
 
     function recover() {
